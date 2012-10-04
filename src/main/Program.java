@@ -10,8 +10,6 @@ public class Program {
     public static void main(String[] args) {
         while (true) {
             printMenu();
-
-            BufferedReader reader = createNewReader();
             int i1 = getUserChoice();
 
             if (i1 == 1) {
@@ -23,7 +21,7 @@ public class Program {
             } else if (i1 == 4) {
                 printMovieCatalog();
             } else if (i1 == 5) {
-                login(reader);
+                login();
 
             } else if (i1 == 9) {
                 quit();
@@ -39,7 +37,8 @@ public class Program {
         System.out.println("Quitting...");
     }
 
-    private static void login(BufferedReader reader) {
+    private static void login() {
+        BufferedReader reader = createNewReader();
         clearLogin();
         System.out.println("Enter your library number");
         try {
