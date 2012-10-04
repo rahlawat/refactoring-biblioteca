@@ -19,14 +19,7 @@ public class Program {
             } else if (i1 == 2) {
                 reserveBook();
             } else if (i1 == 3) {
-                if (loggedIn) {
-                    System.out.println("\n");
-                    System.out.println("Your library number is " + savedLibraryNumber);
-                } else {
-
-                    System.out.println("\n");
-                    System.out.println("Please talk to Librarian. Thank you.");
-                }
+                checkLibraryNumber();
             } else if (i1 == 4) {
                 System.out.println(createMovie("Rocky", "John G. Avildsen", "10"));
                 System.out.println(createMovie("Rocky II", "John G. Avildsen", "9"));
@@ -66,6 +59,17 @@ public class Program {
                 System.out.println("\n");
                 System.out.println("Enter a valid integer!!");
             }
+        }
+    }
+
+    private static void checkLibraryNumber() {
+        if (loggedIn) {
+            System.out.println("\n");
+            System.out.println("Your library number is " + savedLibraryNumber);
+        } else {
+
+            System.out.println("\n");
+            System.out.println("Please talk to Librarian. Thank you.");
         }
     }
 
