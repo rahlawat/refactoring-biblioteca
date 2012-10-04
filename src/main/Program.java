@@ -7,6 +7,7 @@ public class Program {
     private static boolean loggedIn = false;
     private static String savedLibraryNumber = "";
     private static PrintBookCatalog bookCatalog = new PrintBookCatalog();
+    private static ReserveBook reserve = new ReserveBook();
     public static void main(String[] args) {
         while (true) {
             printMenu();
@@ -15,9 +16,9 @@ public class Program {
             if (i1 == 1) {
                 bookCatalog.printBookCatalog();
             } else if (i1 == 2) {
-                reserveBook();
+                reserve.reserveBook();
             } else if (i1 == 3) {
-                checkLibraryNumber();
+               checkLibraryNumber();
             } else if (i1 == 4) {
                 printMovieCatalog();
             } else if (i1 == 5) {
@@ -60,6 +61,17 @@ public class Program {
         }
     }
 
+  private static void checkLibraryNumber() {
+        if (loggedIn) {
+            System.out.println("\n");
+            System.out.println("Your library number is " + savedLibraryNumber);
+        } else {
+
+            System.out.println("\n");
+            System.out.println("Please talk to Librarian. Thank you.");
+        }
+    }
+
     private static void printMovieCatalog() {
         System.out.println(createMovie("Rocky", "John G. Avildsen", "10"));
         System.out.println(createMovie("Rocky II", "John G. Avildsen", "9"));
@@ -71,34 +83,6 @@ public class Program {
         System.out.println(createMovie("The Godfather", "Francis Ford Coppola", "7"));
         System.out.println(createMovie("Inception", "Frank Darabont", "10"));
         System.out.println(createMovie("Pulp Fiction", "Quentin Tarantino", "6"));
-    }
-
-    private static void checkLibraryNumber() {
-        if (loggedIn) {
-            System.out.println("\n");
-            System.out.println("Your library number is " + savedLibraryNumber);
-        } else {
-
-            System.out.println("\n");
-            System.out.println("Please talk to Librarian. Thank you.");
-        }
-    }
-
-    private static void reserveBook() {
-        System.out.println(" Please enter the number of the book you wish to checkout: ");
-        int i2 = getUserChoice();
-        switch (i2) {
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                System.out.println("\n");
-                System.out.println(" Thank You! Enjoy the book.");
-                break;
-            default:
-                System.out.println("\n");
-                System.out.println("Sorry we don't have that book yet.");
-        }
     }
 
     private static void printMenu() {
@@ -122,7 +106,7 @@ public class Program {
         return new BufferedReader(inputStream);
     }
 
-    private static int getUserChoice() {
+    protected static int getUserChoice() {
         BufferedReader reader = createNewReader();
         try {
             String value = reader.readLine();
