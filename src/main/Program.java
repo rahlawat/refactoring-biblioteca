@@ -23,8 +23,7 @@ public class Program {
             System.out.println("**********************************************************");
             System.out.println("Your Selection: ");
 
-            InputStreamReader inputStream = new InputStreamReader(System.in);
-            BufferedReader reader = new BufferedReader(inputStream);
+            BufferedReader reader = createNewReader();
             int i1 = getUserChoice(reader);
 
             if (i1 == 1) {
@@ -105,6 +104,11 @@ public class Program {
                 System.out.println("Enter a valid integer!!");
             }
         }
+    }
+
+    private static BufferedReader createNewReader() {
+        InputStreamReader inputStream = new InputStreamReader(System.in);
+        return new BufferedReader(inputStream);
     }
 
     private static int getUserChoice(BufferedReader reader) {
