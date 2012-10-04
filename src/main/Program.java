@@ -6,14 +6,14 @@ import java.io.InputStreamReader;
 public class Program {
     private static boolean loggedIn = false;
     private static String savedLibraryNumber = "";
-
+    private static PrintBookCatalog bookCatalog = new PrintBookCatalog();
     public static void main(String[] args) {
         while (true) {
             printMenu();
             int i1 = getUserChoice();
 
             if (i1 == 1) {
-                printBookCatalog();
+                bookCatalog.printBookCatalog();
             } else if (i1 == 2) {
                 reserveBook();
             } else if (i1 == 3) {
@@ -99,13 +99,6 @@ public class Program {
                 System.out.println("\n");
                 System.out.println("Sorry we don't have that book yet.");
         }
-    }
-
-    private static void printBookCatalog() {
-        System.out.println(" 1. Sweet Valley High vol. 4 by John Travolta ");
-        System.out.println(" 2. eXtreme Programming Explained by Kent Beck ");
-        System.out.println(" 3. How to Win Friends and Influence People by Dale Carnagie ");
-        System.out.println(" 4. How to Cheat at TWU Assignements by Anonymous ");
     }
 
     private static void printMenu() {
