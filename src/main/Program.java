@@ -34,14 +34,7 @@ public class Program {
                 System.out.println(" 4. How to Cheat at TWU Assignements by Anonymous ");
             } else if (i1 == 2) {
                 System.out.println(" Please enter the number of the book you wish to checkout: ");
-                int i2 = 0;
-                try {
-                    i2 = Integer.parseInt(reader.readLine());
-                } catch (Exception e) {
-                    // Do you know what numbers are!!!
-                    System.out.println("Enter a valid integer!!");
-
-                }
+                int i2 = getUserChoice(reader);
                 switch (i2) {
                     case 1:
                         System.out.println("\n");
