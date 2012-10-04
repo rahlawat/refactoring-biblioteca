@@ -24,7 +24,7 @@ public class Program {
             System.out.println("Your Selection: ");
 
             BufferedReader reader = createNewReader();
-            int i1 = getUserChoice(reader);
+            int i1 = getUserChoice();
 
             if (i1 == 1) {
                 System.out.println(" 1. Sweet Valley High vol. 4 by John Travolta ");
@@ -33,7 +33,7 @@ public class Program {
                 System.out.println(" 4. How to Cheat at TWU Assignements by Anonymous ");
             } else if (i1 == 2) {
                 System.out.println(" Please enter the number of the book you wish to checkout: ");
-                int i2 = getUserChoice(reader);
+                int i2 = getUserChoice();
                 switch (i2) {
                     case 1:
                         System.out.println("\n");
@@ -111,7 +111,8 @@ public class Program {
         return new BufferedReader(inputStream);
     }
 
-    private static int getUserChoice(BufferedReader reader) {
+    private static int getUserChoice() {
+        BufferedReader reader = createNewReader();
         try {
             String value = reader.readLine();
            return Integer.parseInt(value);
