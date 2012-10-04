@@ -71,7 +71,7 @@ public class Program {
                         System.out.println("Sorry we don't have that book yet.");
                 }
             } else if (i1 == 3) {
-                if (loggedIn()) {
+                if (loggedIn) {
                     System.out.println("\n");
                     System.out.println("Your library number is " + savedLibraryNumber);
                 } else {
@@ -128,11 +128,6 @@ public class Program {
     private static boolean validLibraryNumber(String libraryNumber) {
         return libraryNumber.matches("\\d\\d\\d-\\d\\d\\d\\d");
     }
-
-    private static boolean loggedIn() {
-        return loggedIn;
-    }
-
 
     private static void clearLogin() {
         loggedIn = false;
